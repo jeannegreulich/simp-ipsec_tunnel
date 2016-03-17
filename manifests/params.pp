@@ -6,8 +6,8 @@
 class ipsec_tunnel::params {
   case $::osfamily {
     'RedHat': {
-      $package_name = 'ipsec_tunnel'
-      $service_name = 'ipsec_tunnel'
+      $package_name = 'libreswan'
+      $service_name = 'ipsec'
     }
     default: {
       fail("${::operatingsystem} not supported")

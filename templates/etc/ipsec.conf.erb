@@ -1,0 +1,142 @@
+# /etc/ipsec.conf - Libreswan IPsec configuration file
+
+# Uncomment when using this configuration file with openswan
+#version 2
+#
+# Manual:     ipsec.conf.5
+#  For example connections, see your distribution's documentation directory,
+#  or https://libreswan.org/wiki/
+# 
+# There is also a lot of information in the manual page, "man ipsec.conf"
+#
+
+config setup
+<% if not scope.lookupvar('ipsec_tunnel::myid').empty? then -%>
+  myid = <%= scope.lookupvar('ipsec_tunnel::myid') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::interfaces').empty? then -%>
+  interfaces = <%= scope.lookupvar('ipsec_tunnel::interfaces') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::listen').empty? then -%>
+  listen = <%= scope.lookupvar('ipsec_tunnel::listen') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::ikeport').empty? then -%>
+  ikeport = <%= scope.lookupvar('ipsec_tunnel::ikeport') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::nat_ikeport').empty? then -%>
+  nat-ikeport = <%= scope.lookupvar('ipsec_tunnel::nat_ikeport') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::keep_alive').empty? then -%>
+  keep-alive = <%= scope.lookupvar('ipsec_tunnel::keep_alive') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::retransmits').empty? then -%>
+  retransmits = <%= scope.lookupvar('ipsec_tunnel::retransmits') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::virtual_private').empty? then -%>
+  virtual_private = "%v4:<%= scope.lookupvar('ipsec_tunnel::virtual_private').join("%v4:")%>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::myvendorid').empty? then -%>
+  myvendorid = <%= scope.lookupvar('ipsec_tunnel::myvendorid') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::nhelpers').empty? then -%>
+  nhelpers = <%= scope.lookupvar('ipsec_tunnel::nhelpers') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::plutofork').empty? then -%>
+  plutofork = <%= scope.lookupvar('ipsec_tunnel::plutofork') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::crlcheckinterval').empty? then -%>
+  crlcheckinterval = <%= scope.lookupvar('ipsec_tunnel::crlcheckinterval') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::strictcrlpolicy').empty? then -%>
+  strictcrlpolicy = <%= scope.lookupvar('ipsec_tunnel::strictcrlpolicy') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::syslog').empty? then -%>
+  syslog = <%= scope.lookupvar('ipsec_tunnel::syslog') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::klipsdebug').empty? then -%>
+  klipsdebug = <%= scope.lookupvar('ipsec_tunnel::klipsdebug') %>
+<% end -%>
+	# Do not enable debug options to debug configuration issues!
+	# plutodebug "all", "none" or a combation from below:
+	# "raw crypt parsing emitting control controlmore kernel pfkey
+	#  natt x509 dpd dns oppo oppoinfo private".
+	# Note: "private" is not included with "all", as it can show confidential
+	#       information. It must be specifically specified
+	# examples:
+	# plutodebug="control parsing"
+	# plutodebug="all crypt"
+	# Again: only enable plutodebug when asked by a developer
+<% if not scope.lookupvar('ipsec_tunnel::plutodebug').empty? then -%>
+  plutodebug = <%= scope.lookupvar('ipsec_tunnel::plutodebug') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::uniqueids').empty? then -%>
+  uniqueids = <%= scope.lookupvar('ipsec_tunnel::uniqueids') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::plutorestartoncrash').empty? then -%>
+  plutorestartoncrash = <%= scope.lookupvar('ipsec_tunnel::plutorestartoncrash') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::logdir').empty? then -%>
+  plutostderrlog = <%= scope.lookupvar('ipsec_tunnel::plutostderrlog') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::plutostderrlog').empty? then -%>
+  plutostderrlog = <%= scope.lookupvar('ipsec_tunnel::plutostderrlog') %>
+<% end -%>
+	# Normally, pluto logs via syslog. If you want to log to a file,
+	# specify below or to disable logging, eg for embedded systems, use
+	# the file name /dev/null
+	# Note: SElinux policies might prevent pluto writing to a log file at
+	#       an unusual location.
+<% if not scope.lookupvar('ipsec_tunnel::logfile').empty? then -%>
+  logfile = <%= scope.lookupvar('ipsec_tunnel::logfile') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::force_busy').empty? then -%>
+  force-busy = <%= scope.lookupvar('ipsec_tunnel::force_busy') %>
+<% end -%>
+	# Enable core dumps (might require system changes, like ulimit -C)
+	# This is required for abrtd to work properly
+	# Note: SElinux policies might prevent pluto writing the core at
+	#       unusual locations
+<% if not scope.lookupvar('ipsec_tunnel::dumpdir').empty? then -%>
+  dumpdir = <%= scope.lookupvar('ipsec_tunnel::dumpdir') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::statsbin').empty? then -%>
+  statsbin = <%= scope.lookupvar('ipsec_tunnel::statsbin') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::ipsecdir').empty? then -%>
+  ipsecdir = <%= scope.lookupvar('ipsec_tunnel::ipsecdir') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::secretsfile').empty? then -%>
+  secretsfile = <%= scope.lookupvar('ipsec_tunnel::secretsfile') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::perpeerlog').empty? then -%>
+  perpeerlog = <%= scope.lookupvar('ipsec_tunnel::perpeerlog') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::perpeerlogdir').empty? then -%>
+  perpeerlogdir = <%= scope.lookupvar('ipsec_tunnel::perpeerlogdir') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::fragicmp').empty? then -%>
+  fragicmp = <%= scope.lookupvar('ipsec_tunnel::fragicmpleft') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::hidetos').empty? then -%>
+  hidetos = <%= scope.lookupvar('ipsec_tunnel::hidetos') %>
+<% end -%>
+<% if not scope.lookupvar('ipsec_tunnel::overridemtu').empty? then -%>
+  overridemtu = <%= scope.lookupvar('ipsec_tunnel::overridemtu') %>
+<% end -%>
+	# which IPsec stack to use, "netkey" (the default), "klips" or "mast".
+	# For MacOSX use "bsd"
+<% if not scope.lookupvar('ipsec_tunnel::protostack').empty? then -%>
+  protostack = <%= scope.lookupvar('ipsec_tunnel::protostack') %>
+<% end -%>
+	#
+	# NAT-TRAVERSAL support
+	# exclude networks used on server side by adding %v4:!a.b.c.0/24
+	# It seems that T-Mobile in the US and Rogers/Fido in Canada are
+	# using 25/8 as "private" address space on their wireless networks.
+	# This range has never been announced via BGP (at least upto 2015)
+#	virtual_private=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%v4:172.16.0.0/12,%v4:25.0.0.0/8,%v4:100.64.0.0/10,%v6:fd00::/8,%v6:fe80::/10
+
+#
+# It is best to add your IPsec connections as separate files in the ipsecdir 
+#  (defined above (default /etc/ipsec.d/ )
+include <%= scope.lookupvar('ipsec_tunnel::ipsecdir') %>/*.conf

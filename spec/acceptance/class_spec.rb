@@ -20,11 +20,11 @@ describe 'ipsec_tunnel class' do
     end
 
 
-    describe package('ipsec_tunnel') do
+    describe package('libreswan') do
       it { is_expected.to be_installed }
     end
 
-    describe service('ipsec_tunnel') do
+    describe service('ipsec') do
       it { is_expected.to be_enabled }
       it { is_expected.to be_running }
     end

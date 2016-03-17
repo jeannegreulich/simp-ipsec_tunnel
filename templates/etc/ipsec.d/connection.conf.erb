@@ -1,0 +1,58 @@
+conn <%= @conn_name %>
+#Left Side Settings
+<% if not @left.empty? then -%>
+  left = <%= @left %>
+<% end -%>
+<% if not @leftid.empty? then -%>
+  leftid = <%= @leftid %>
+<% end -%>
+<% if not @leftupdown.empty? then -%>
+  leftupdown = <%= @leftupdown %>
+<% end -%>
+<% if not @leftcert.empty? then -%>
+  leftcert = <%= @leftcert %>
+<% end -%>
+<% if not @leftprotoport.empty? then -%>
+  leftprotoport = <%= @leftprotoport %>
+<% end -%>
+<% if not @leftsourceip.empty? then -%>
+  leftsourceip = <%= @leftsourceip %>
+<% end -%>
+<% if not @leftrsasigkey.empty? then -%>
+  leftrsasigkey = <%= @leftrsasigkey %>
+<% end -%>
+<% if not @leftsendcert.empty? then -%>
+  leftsendcert = <%= @leftsendcert %>
+<% end -%>
+#Right Side Settings
+<% if not @right.empty? then -%>
+  right = <%= @right %>
+<% end -%>
+<% if not @rightid.empty? then -%>
+  rightid = <%= @rightid %>
+<% end -%>
+<% if not @rightupdown.empty? then -%>
+  rightupdown = <%= @rightupdown %>
+<% end -%>
+<% if not @rightcert.empty? then -%>
+  rightcert = <%= @rightcert %>
+<% end -%>
+<% if not @rightprotoport.empty? then -%>
+  rightprotoport = <%= @rightprotoport %>
+<% end -%>
+<% if not @rightsourceip.empty? then -%>
+  rightsourceip = <%= @rightsourceip %>
+<% end -%>
+<% if not @rightrsasigkey.empty? then -%>
+  rightrsasigkey = <%= @rightrsasigkey %>
+<% end -%>
+<% if not @rightsendcert.empty? then -%>
+  rightsendcert = <%= @rightsendcert %>
+<% end -%>
+# Universal settings
+<% if not @authby.empty? then -%>
+  authby = <%= @authby %>
+<% end -%>
+<% if not @auto.empty? then -%>
+  auto = <%= @auto %>
+<% end -%>
