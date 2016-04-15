@@ -6,9 +6,9 @@
 class ipsec_tunnel::config::firewall {
   assert_private()
   iptables::add_udp_listen { 'ipsec_allow':
-    client_nets => 'any',
-    apply_to => 'all',
-    dports => [ $::ipsec_tunnel::ikeport, $::ipsec_tunnel::nat_ikeport ],
+    client_nets => '127.0.0.0',
+    apply_to    => 'all',
+    dports      => [ $::ipsec_tunnel::ikeport, $::ipsec_tunnel::nat_ikeport ],
   }
 # Add rules to allow the AH and ESP protocols used to encrypt data
   iptables::add_rules { 'allow_protocol_50':

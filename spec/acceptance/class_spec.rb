@@ -28,5 +28,13 @@ describe 'ipsec_tunnel class' do
       it { is_expected.to be_enabled }
       it { is_expected.to be_running }
     end
+ 
+    it 'should be listening on port 500' do
+       on server, "netstat -nuap | grep '^tcp.* [dd]d.[dd]d.[dd]d.[dd]d:500 .*/pluto'", :acceptable_exit_codes => [0]
+    end
+    it 'should be listening on port 4500' do
+       on server, "netstat -nuap | grep '^ucp.* [dd]d.[dd]d.[dd]d.[dd]d:4500 .*/pluto'", :acceptable_exit_codes => [0]
+    end
+
   end
 end

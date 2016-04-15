@@ -1,6 +1,6 @@
 Summary: Manages IPSec VPN Tunnels
 Name: pupmod-ipsec_tunnel
-Version: 0.1.0
+Version: 0.5.0
 Release: 0
 License: Apache 2.0
 Group: Applications/System

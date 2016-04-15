@@ -8,10 +8,20 @@ HOSTS:
     box:        puppetlabs/centos-7.0-64-nocm
     box_url:    https://vagrantcloud.com/puppetlabs/boxes/centos-7.0-64-nocm
     hypervisor: vagrant
-  client:
+  ipsec-server1:
     roles:
       - client
       - agent
+      - ipsec
+    platform:   el-7-x86_64
+    box:        puppetlabs/centos-7.0-64-nocm
+    box_url:    https://vagrantcloud.com/puppetlabs/boxes/centos-7.0-64-nocm
+    hypervisor: vagrant
+  ipsec-server2:
+    roles:
+      - client
+      - agent
+      - ipsec
     platform:   el-7-x86_64
     box:        puppetlabs/centos-7.0-64-nocm
     box_url:    https://vagrantcloud.com/puppetlabs/boxes/centos-7.0-64-nocm

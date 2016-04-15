@@ -1,58 +1,103 @@
 conn <%= @conn_name %>
 #Left Side Settings
-<% if not @left.empty? then -%>
+<% if @left then -%>
   left = <%= @left %>
 <% end -%>
-<% if not @leftid.empty? then -%>
+<% if @leftid then -%>
   leftid = <%= @leftid %>
 <% end -%>
-<% if not @leftupdown.empty? then -%>
+<% if @leftupdown then -%>
   leftupdown = <%= @leftupdown %>
 <% end -%>
-<% if not @leftcert.empty? then -%>
+<% if @leftcert then -%>
   leftcert = <%= @leftcert %>
 <% end -%>
-<% if not @leftprotoport.empty? then -%>
+<% if @leftca then -%>
+  leftca = <%= @lefta %>
+<% end -%>
+<% if @leftprotoport then -%>
   leftprotoport = <%= @leftprotoport %>
 <% end -%>
-<% if not @leftsourceip.empty? then -%>
+<% if @leftsourceip then -%>
   leftsourceip = <%= @leftsourceip %>
 <% end -%>
-<% if not @leftrsasigkey.empty? then -%>
+<% if @leftrsasigkey then -%>
   leftrsasigkey = <%= @leftrsasigkey %>
 <% end -%>
-<% if not @leftsendcert.empty? then -%>
+<% if @leftrsasigkey2 then -%>
+  leftrsasigkey2 = <%= @leftrsasigkey2 %>
+<% end -%>
+<% if @leftsendcert then -%>
   leftsendcert = <%= @leftsendcert %>
 <% end -%>
 #Right Side Settings
-<% if not @right.empty? then -%>
+<% if @right then -%>
   right = <%= @right %>
 <% end -%>
-<% if not @rightid.empty? then -%>
+<% if @rightid then -%>
   rightid = <%= @rightid %>
 <% end -%>
-<% if not @rightupdown.empty? then -%>
+<% if @rightupdown then -%>
   rightupdown = <%= @rightupdown %>
 <% end -%>
-<% if not @rightcert.empty? then -%>
+<% if @rightcert then -%>
   rightcert = <%= @rightcert %>
 <% end -%>
-<% if not @rightprotoport.empty? then -%>
+<% if @rightca then -%>
+  rightca = <%= @rightca %>
+<% end -%>
+<% if @rightprotoport then -%>
   rightprotoport = <%= @rightprotoport %>
 <% end -%>
-<% if not @rightsourceip.empty? then -%>
+<% if @rightsourceip then -%>
   rightsourceip = <%= @rightsourceip %>
 <% end -%>
-<% if not @rightrsasigkey.empty? then -%>
+<% if @rightrsasigkey then -%>
   rightrsasigkey = <%= @rightrsasigkey %>
 <% end -%>
-<% if not @rightsendcert.empty? then -%>
+<% if @rightrsasigkey2 then -%>
+  rightrsasigkey2 = <%= @rightrsasigkey2 %>
+<% end -%>
+<% if @rightsendcert then -%>
   rightsendcert = <%= @rightsendcert %>
 <% end -%>
 # Universal settings
-<% if not @authby.empty? then -%>
+<% if @authby then -%>
   authby = <%= @authby %>
 <% end -%>
-<% if not @auto.empty? then -%>
+<% if @type then -%>
+  type = <%= @type %>
+<% end -%>
+<% if @auto then -%>
   auto = <%= @auto %>
+<% end -%>
+<% if @ike then -%>
+  ike = <%= @ike %>
+<% end -%>
+<% if @ikev2 then -%>
+  ikev2 = <%= @ikev2 %>
+<% end -%>
+<% if @phase2 then -%>
+  phase2 = <%= @phase2 %>
+<% end -%>
+<% if @phase2alg then -%>
+  phase2alg = <%= @phase2alg %>
+<% end -%>
+<% if @sareftrack then -%>
+  sareftrack = <%= @sareftrack %>
+<% end -%>
+<% if @narrowing then -%>
+  narrowing = <%= @narrowing %>
+<% end -%>
+<% if @ikevpad then -%>
+  ikevpad = <%= @ikevpad %>
+<% end -%>
+<% if @ike_frag then -%>
+  ikev-frag = <%= @ikev_frag %>
+<% end -%>
+<% if @sha2_truncbug then -%>
+  sha2-truncbug = <%= @sha2_truncbug %>
+<% end -%>
+<% if @nat_ikev1_method then -%>
+  nat-ikev1-method = <%= @nat_ikev1_method %>
 <% end -%>
